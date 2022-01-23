@@ -12,7 +12,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import junit.framework.Assert;
+import org.junit.Assert;
 
 public class stepDefinition {
 
