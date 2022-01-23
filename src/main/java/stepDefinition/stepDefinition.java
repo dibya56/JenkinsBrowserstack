@@ -22,13 +22,13 @@ public class stepDefinition {
 	public void user_launch_the_appliation() throws MalformedURLException {
 	    // Write code here that turns the phrase above into concrete actions
 		DesiredCapabilities cap = new DesiredCapabilities();
-		cap.setCapability("deviceName", "Android Emulator");
-		cap.setCapability("platformName", "Android");
-		cap.setCapability("platformVersion", "9.0");
-		cap.setCapability("appPackage", "com.whatsapp");
-		cap.setCapability("appActivity", "com.whatsapp.HomeActivity");
+		cap.setCapability("app", System.getenv("BROWSERSTACK_APP_ID"));
+		cap.setCapability("device", "Samsung Galaxy S8");
+		cap.setCapability("build", System.getenv("BROWSERSTACK_BUILD_NAME"));
+		cap.setCapability("browserstack.local", System.getenv("BROWSERSTACK_LOCAL"));
+	    cap.setCapability("browserstack.localIdentifier", System.getenv("BROWSERSTACK_LOCAL_IDENTIFIER"));
 		
-		driver =  new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+		driver =  new AndroidDriver<>(new URL("https://"+System.getenv("BROWSERSTACK_USERNAME")+":"+System.getenv("BROWSERSTACK_ACCESS_KEY")+"@hub-cloud.browserstack.com/wd/hub"), cap);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
