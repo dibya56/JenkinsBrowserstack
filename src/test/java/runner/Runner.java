@@ -8,7 +8,8 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features="src/main/java/feature/featureFile.feature",
-		glue={"stepDefinition"}
+		glue={"stepDefinition"},
+		plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json"}
 		)
 public class Runner {
 
